@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_kipo_helpdesk_create_group_user,kipo.helpdesk.create.user,model_kipo_helpdesk_create,base.group_user,1,1,1,1
+access_kipo_helpdesk_create_tags_group_user,kipo.helpdesk.create.tags.user,model_kipo_helpdesk_create_tags,base.group_user,1,1,1,1
+access_kipo_helpdesk_create_devices_group_user,kipo.helpdesk.create.devices.user,model_kipo_helpdesk_create_devices,base.group_user,1,1,1,1
+access_kipo_helpdesk_create_versions_group_user,kipo.helpdesk.create.versions.user,model_kipo_helpdesk_create_versions,base.group_user,1,1,1,1

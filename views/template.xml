@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="helpdesk_page" name="Helpdesk">
+        <t t-call="website.layout">
+            <xpath expr="." position="inside">
+                <link href="/kipo_helpdesk_create/static/src/css/style.css" rel="stylesheet" type="text/css"/>
+
+                <div class="container">
+                    <h1 class="text-center mt16 mb16">Submit Support Ticket</h1>
+
+                    <form action="/ticketprocess" method="POST" class="form-horizontal mt32"
+                          enctype="multipart/form-data">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <input style="display:none;" name="my_gold" value="256"/>
+                        <div t-attf-class="form-group #{error and 'customer_name' in error and 'has-error' or ''}">
+                            <label class="control-label" for="customer_name">نام و نام خانودگی:</label>
+                            <input type="text" class="form-control" name="customer_name" required="True"
+                                   t-attf-value="#{customer_name or ''}"/>
+                        </div>
+
+                        <div t-attf-class="form-group #{error and 'tel_number' in error and 'has-error' or ''}">
+                            <label class="control-label" for="tel_number">شماره تلفن:</label>
+                            <input type="text" class="form-control" name="tel_number" required="True"
+                                   t-attf-value="#{tel_number or ''}"/>
+                        </div>
+                        <div name="email_from_container"
+                             t-attf-class="form-group #{error and 'email' in error and 'has-error' or ''}">
+                            <label class="control-label" for="email">ایمیل:</label>
+                            <input type="email" class="form-control" name="email" required="True"
+                                   t-attf-value="#{email or ''}" t-att-readonly="'readonly' if email else None"/>
+                        </div>
+
+
+                        <div t-attf-class="form-group #{error and 'problemDes' in error and 'has-error' or ''}">
+                            <label class="control-label" for="problemDes">توضیحات:</label>
+                            <textarea class="form-control" name="problemDes" rows="6" required="True"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-lg">Submit Ticket</button>
+                        </div>
+                    </form>
+
+                </div>
+            </xpath>
+        </t>
+
+    </template>
+
+
+</odoo>

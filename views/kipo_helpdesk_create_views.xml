@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+		<act_window id="action_kipo_helpdesk_create"
+			name="Kipo Helpdesk Create"
+			res_model="kipo.helpdesk.create"
+			view_mode="form" 
+			target="new"/>
+
+		<menuitem id="menu_kipo_helpdesk_create_view"
+			name="Helpdesk Create"
+			sequence="20"
+			action="action_kipo_helpdesk_create"
+			web_icon="kipo_helpdesk,static/description/icon.png" />
+
+		<record id="action_kipo_helpdesk_create_view_form" model="ir.ui.view">
+			<field name="name">Kipo Helpdesk Craete Form</field>
+			<field name="model">kipo.helpdesk.create</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Helpdesk">
+					<sheet>
+						<group>
+							<field name="customer_name"/>
+							<field name="kipo_num"/>
+							<field name="tel_number"/>
+							<field name="email"/>
+							<field name="device_id"/>
+							<field name="version_id"/>
+							<field name="tag_id"/>
+							<field name="problem_des"/>
+							<field name="assignedto_id"/>
+						</group>
+						<footer>
+							<button name="create_helpdesk_card" type="object" string="Save" class="oe_highlight" />
+						</footer>
+					</sheet>
+				</form>
+			</field>
+		</record>
+	</data>
+</odoo>
