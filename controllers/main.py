@@ -40,7 +40,14 @@ class HelpDesk(http.Controller):
             customerEmail = ''
         else:
             customerEmail = str(values['email'])
-
+        if values['category'] == False:
+            category =''
+        else :
+            category=values['category']
+        if values['organ'] == False:
+            organ = ''
+        else:
+            organ = values['organ']
         if values['problemDes'] == False:
             problemDes = ''
         else:
@@ -60,8 +67,10 @@ class HelpDesk(http.Controller):
                 correctDes = correctDes + tempChar
         correctDes = correctDes + '</p>'
         fullDescription = "<p>" + "Customer Name:" + customerName + "</p>"
-        fullDescription = fullDescription + "<p>" + "Tel:" + telNumber + "</p>"
-        fullDescription = fullDescription + "<p>" + "Email:" + customerEmail + "</p>"
+        fullDescription = fullDescription + "<p>" + "Tel: " + telNumber + "</p>"
+        fullDescription = fullDescription + "<p>" + "Email: " + customerEmail + "</p>"
+        fullDescription= fullDescription + "<p>" + "category: " + category + "</p>"
+        fullDescription= fullDescription + "<p>" + "organ: " + organ + "</p>"
         fullDescription = fullDescription + "<p>" + "Description:" + "</p>"
         fullDescription = fullDescription + correctDes
 
